@@ -6,7 +6,13 @@ const ticks_max := [8, 20, 10, 5, 1]
 const diretion_change := [0.785398, -0.785398]
 const spawn_points := [Vector2i(1, 1),Vector2i( -1,  -1), Vector2i(1,0),Vector2i(-1,0), Vector2i(0,1), Vector2i(0,-1), Vector2i(-1,1), Vector2i(1,-1)]
 const rect := Rect2i(Vector2i.ZERO, Vector2i.ONE*size-Vector2i.ONE)
-
+#const CHARACTERS := [preload("res://Assets/kenney_scribble-dungeons/PNG/Default (64px)/Characters/red_character.png"), preload("res://Assets/kenney_scribble-dungeons/PNG/Default (64px)/Characters/yellow_character.png"), preload("res://Assets/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_character.png"), preload("res://Assets/kenney_scribble-dungeons/PNG/Default (64px)/Characters/purple_character.png"), preload("res://Assets/kenney_scribble-dungeons/PNG/Default (64px)/coffin.png")]
+#const CHARACTERS := [preload("res://Assets/kenney_scribble-dungeons/PNG/Default (64px)/Characters/red_character.png"), preload("res://Assets/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_character.png"), preload("res://Assets/kenney_scribble-dungeons/PNG/Default (64px)/Characters/yellow_character.png"),preload("res://Assets/kenney_scribble-dungeons/PNG/Default (64px)/Characters/purple_character.png"), preload("res://Assets/kenney_scribble-dungeons/PNG/Default (64px)/Characters/coffin.png")]
+const CHARACTERS := [preload("res://Assets/kenney/red_character.png")
+					,preload("res://Assets/kenney/yellow_character.png")
+					,preload("res://Assets/kenney/green_character.png")
+					,preload("res://Assets/kenney/purple_character.png")
+					,preload("res://Assets/kenney/coffin.png")]
 var map:Map
 var velocity := Vector2.ZERO
 var coordinates:= Vector2i.ZERO
@@ -20,6 +26,7 @@ var color:Color
 var color_old:Color
 enum TYPES {SPAWNER, SEEKER, WALKER, FOOD, DEAD }
 @export var type: TYPES
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 static var live_agents :=0
 
@@ -30,6 +37,7 @@ func _ready() -> void:
 	tick = ticks_max[type]
 	color = colors[type]
 	color_old = color
+	sprite_2d.texture = CHARACTERS[type]
 	
 	match type:
 		TYPES.SPAWNER, TYPES.SEEKER, TYPES.WALKER:
@@ -122,8 +130,10 @@ func _physics_process(delta: float) -> void:
 				map.set_grid_value_v(coordinates, null)
 				set_physics_process(false)
 				queue_free()
-			color = colors[type].lerp(color_old, tick/ticks_max[type])
-			queue_redraw()
+			#color = colors[type].lerp(color_old, tick/ticks_max[type])
+			color = Color(0.5,0.5,0.5,1.0).lerp(Color(0.5,0.5,0.5,0.0), tick/ticks_max[type])
+			sprite_2d.modulate = color
+			#queue_redraw()
 			
 func reduce_food():
 	tick -= 1
@@ -158,7 +168,8 @@ func change_type(new_type:TYPES):
 	color_old = color
 	color = colors[type]
 	timer = 0.0
-	queue_redraw()
+	sprite_2d.texture = CHARACTERS[type]
+	#queue_redraw()
 
 func try_change_direction():
 	var rand_value = randi()%5
@@ -166,5 +177,5 @@ func try_change_direction():
 		velocity = velocity.rotated(diretion_change[rand_value])
 
 
-func _draw() -> void:
-	draw_rect(rect, color)
+#func _draw() -> void:
+	#draw_rect(rect, color)

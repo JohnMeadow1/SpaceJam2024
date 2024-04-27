@@ -13,3 +13,7 @@ func play_button_sound():
 func play_music_sound():
 	music_player.play()
 	pass
+
+func set_pitch(in_value):
+	music_player.pitch_scale = in_value
+	

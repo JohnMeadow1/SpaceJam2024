@@ -40,7 +40,7 @@ func game_over():
 	restart.visible = true
 	gameover.visible = true
 	hight_score.visible = true
-	hight_score.text = str("Score: ", map.max_entropy)
+	hight_score.text = str("Score: ", map.entropy_max)
 	ui_layer.show()
 	$CanvasLayer/Panel/AnimationPlayer2.play("show")
 	reset_focus()

@@ -5,6 +5,21 @@
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://Scenes/MainMenu/assets/MinimalUI/MinimalUI.tres" id="3_uw0hp"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://Scenes/MainMenu/scenes/settings.tscn" id="4_fwwrp"]
 
+[sub_resource type="Animation" id="Animation_as5t7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Entropy:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.261799]
+}
+
 [sub_resource type="Animation" id="Animation_ybt8v"]
 resource_name = "swing"
 length = 5.0
@@ -20,21 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
 "values": [-0.261799, 0.261799, -0.261799]
-}
-
-[sub_resource type="Animation" id="Animation_as5t7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Entropy:rotation")
-tracks/0/interp = 3
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.261799]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3xl46"]
@@ -142,6 +142,21 @@ _data = {
 "show": SubResource("Animation_pbvfp")
 }
 
+[sub_resource type="Animation" id="Animation_krclx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hight:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_oq2ix"]
 resource_name = "jump"
 loop_mode = 1
@@ -156,21 +171,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 1.5), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_krclx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Hight:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2c88s"]

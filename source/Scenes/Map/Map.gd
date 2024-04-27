@@ -7,9 +7,10 @@ const GRID_RES  := 720.0/15.0
 const AGENT = preload("res://Nodes/Agent.tscn")
 var grid :Array[Agent]
 
-var max_entropy := 0.0
-var difficulty := 1.0
-
+var entropy_max := 0.0
+var difficulty  := 1.0
+var entropy_avg := 2.0
+var pitch := 1.0
 var map_mask := [
 [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
@@ -50,20 +51,29 @@ func _ready() -> void:
 		#add_agent(Vector2(400,300) + Vector2.RIGHT.rotated(i/10.0* TAU + randf_range(-PI*0.05,PI*0.05)) * randf_range( 100, 200), Agent.TYPES.FOOD)
 
 func _physics_process(delta: float) -> void:
-	difficulty += delta / 120.0
+	difficulty += delta / 240.0
 	entropy.text = str("Sustained Entropy\n", Agent.live_agents)
-	max_entropy = max(max_entropy, Agent.live_agents)
+	entropy_avg = get_updated_average_opt(entropy_avg, Agent.live_agents )
+	entropy_max = max(entropy_max, Agent.live_agents)
+	var thing = clamp(1.0 + (Agent.live_agents-entropy_avg), 0.2, 1.1)
+	pitch = lerp(pitch, thing, 0.005)
+	prints(pitch, Agent.live_agents, entropy_max, entropy_avg)
+	AudioManager.set_pitch( pitch )
 	if Agent.live_agents<=0:
 		game.game_over()
 		set_physics_process(false)
 
 	#queue_redraw()
+func get_updated_average_opt(average:float, input:float):
+	var average_sample_size = 0.05
+	return (average_sample_size * input) + (1.0 - average_sample_size) * average
 	
 func _input(event):
 	if not game.is_game_over:
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-				var agent = get_grid_value_v (get_global_mouse_position()/GRID_RES)
+				var mouse_pos = get_global_mouse_position()/GRID_RES
+				var agent = get_grid_value_v(mouse_pos)
 				if agent:
 					if agent.type == Agent.TYPES.WALKER:
 						agent.change_type(Agent.TYPES.FOOD)
