@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0oban0w7vt7r"
-path="res://.godot/imported/sun.png-d6458ce6c98f5edda7d747aec99863c5.ctex"
+uid="uid://ininuxmwav18"
+path="res://.godot/imported/rectagle.png-d0fa5c191a4328db14ca91036d8586ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/sun.png"
-dest_files=["res://.godot/imported/sun.png-d6458ce6c98f5edda7d747aec99863c5.ctex"]
+source_file="res://rectagle.png"
+dest_files=["res://.godot/imported/rectagle.png-d0fa5c191a4328db14ca91036d8586ac.ctex"]
 
 [params]
 

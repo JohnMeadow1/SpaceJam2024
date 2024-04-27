@@ -3,7 +3,7 @@ extends Node
 # Scene manager
 @export var scenes: Array[PackedScene] = []
 @export var scene_map: Dictionary = {}
-@export var is_persistence: bool = false
+@export var is_persistence: bool = true
 
 const PATH = "user://settings.cfg"
 var config: ConfigFile
