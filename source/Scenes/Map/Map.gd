@@ -91,7 +91,7 @@ func _draw():
 	for y in GRID_SIZE.y-1:
 		for x in GRID_SIZE.x-1:
 			var rect_orgin = Vector2(x * GRID_RES, y * GRID_RES)
-			draw_rect( Rect2(rect_orgin, Vector2(GRID_RES,GRID_RES)), Color(1,1,0,0.1), false )
+			draw_rect( Rect2(rect_orgin, Vector2(GRID_RES,GRID_RES)), Color(0,0,1,0.1), false )
 			
 
 func add_agent(in_position:Vector2, in_type:Agent.TYPES):

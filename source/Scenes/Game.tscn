@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_kppf7"]
 [ext_resource type="PackedScene" uid="uid://dqpomijhq15m3" path="res://Scenes/Map/Map.tscn" id="2_cjnm8"]
-[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://Scenes/MainMenu/assets/MinimalUI/MinimalUI.tres" id="3_uw0hp"]
+[ext_resource type="Theme" uid="uid://d1ibbcs5qbibx" path="res://Scenes/MainMenu/assets/MinimalUI/MinimalUI2.tres" id="3_eputj"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://Scenes/MainMenu/scenes/settings.tscn" id="4_fwwrp"]
 
 [sub_resource type="Animation" id="Animation_as5t7"]
@@ -187,7 +187,6 @@ offset_left = -192.0
 offset_top = -200.0
 offset_right = 1408.0
 offset_bottom = 896.0
-color = Color(0, 0, 0, 1)
 
 [node name="Map" parent="." node_paths=PackedStringArray("entropy") instance=ExtResource("2_cjnm8")]
 entropy = NodePath("../Entropy")
@@ -208,7 +207,7 @@ grow_vertical = 2
 rotation = 6.02139
 pivot_offset = Vector2(169, 0)
 size_flags_horizontal = 4
-theme = ExtResource("3_uw0hp")
+theme = ExtResource("3_eputj")
 theme_override_font_sizes/font_size = 50
 text = "Entropy:"
 horizontal_alignment = 1
@@ -219,20 +218,20 @@ offset_left = 849.0
 offset_top = 250.0
 offset_right = 1249.0
 offset_bottom = 750.0
-theme = ExtResource("3_uw0hp")
+theme = ExtResource("3_eputj")
 theme_override_constants/line_separation = 4
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "What:
-[img color=DARK_RED]res://rectagle.png[/img] Spawner
-[img color=DARK_BLUE]res://rectagle.png[/img] Food source
-[img color=ANTIQUE_WHITE]res://rectagle.png[/img] Looking for food
-[img color=WEB_GREEN]res://rectagle.png[/img] Has food
-We die!
+[img=40]res://Assets/kenney/red_character.png[/img] Spawner
+[img=40]res://Assets/kenney/purple_character.png[/img] Food source
+[img=40]res://Assets/kenney/yellow_character.png[/img] Looking for food
+[img=40]res://Assets/kenney/green_character.png[/img] Has food
+[img=40]res://Assets/kenney/coffin.png[/img] We die!
 
 How:
-[img color=WEB_GREEN]res://rectagle.png[/img] Left Click - > [img color=DARK_BLUE]res://rectagle.png[/img] 
-[img color=WEB_GREEN]res://rectagle.png[/img] Right Click - > [img color=DARK_RED]res://rectagle.png[/img]"
+Left Click  [img=40]res://Assets/kenney/green_character.png[/img] > [img=40]res://Assets/kenney/purple_character.png[/img]
+Right Click [img=40]res://Assets/kenney/green_character.png[/img] > [img=40]res://Assets/kenney/red_character.png[/img]"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -249,7 +248,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3_uw0hp")
+theme = ExtResource("3_eputj")
 
 [node name="PauseMenu" type="VBoxContainer" parent="CanvasLayer/Panel"]
 layout_mode = 1
@@ -270,7 +269,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 focus_neighbor_top = NodePath("../MainMenu")
 focus_neighbor_bottom = NodePath("../Option")
-theme = ExtResource("3_uw0hp")
+theme = ExtResource("3_eputj")
 theme_override_font_sizes/font_size = 24
 text = "Resume"
 
@@ -281,7 +280,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 focus_neighbor_top = NodePath("../MainMenu")
 focus_neighbor_bottom = NodePath("../Option")
-theme = ExtResource("3_uw0hp")
+theme = ExtResource("3_eputj")
 theme_override_font_sizes/font_size = 24
 text = "Restart"
 
@@ -290,7 +289,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Resume")
 focus_neighbor_bottom = NodePath("../MainMenu")
-theme = ExtResource("3_uw0hp")
+theme = ExtResource("3_eputj")
 theme_override_font_sizes/font_size = 24
 text = "Option"
 
@@ -299,7 +298,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Option")
 focus_neighbor_bottom = NodePath("../Resume")
-theme = ExtResource("3_uw0hp")
+theme = ExtResource("3_eputj")
 theme_override_font_sizes/font_size = 24
 text = "Main Menu
 "
@@ -325,7 +324,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(169, 0)
 size_flags_horizontal = 4
-theme = ExtResource("3_uw0hp")
+theme = ExtResource("3_eputj")
 theme_override_font_sizes/font_size = 50
 text = "GAME OVER"
 horizontal_alignment = 1
@@ -350,7 +349,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(169, 50)
 size_flags_horizontal = 4
-theme = ExtResource("3_uw0hp")
+theme = ExtResource("3_eputj")
 theme_override_font_sizes/font_size = 38
 text = "Score:"
 horizontal_alignment = 1

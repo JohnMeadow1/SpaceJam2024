@@ -1,7 +1,6 @@
 	
 
 	Scribble Dungeons (1.0)
-	Splat Pack (1.0)
 	
 	Created/distributed by Kenney (www.kenney.nl)
 	Creation date: 16-02-2022

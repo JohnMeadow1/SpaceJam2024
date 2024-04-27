@@ -2,6 +2,8 @@ extends Control
 
 @onready var option_menu: TabContainer = $"../Settings"
 
+@onready var credits: TabContainer = $"../Credits"
+
 func _ready():
 	$VBoxContainer/Start.grab_focus()
 	pass
@@ -20,3 +22,9 @@ func _on_option_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+
+func _on_credits_pressed() -> void:
+	credits.show()
+	credits.reset_focus()
+	AudioManager.play_button_sound()

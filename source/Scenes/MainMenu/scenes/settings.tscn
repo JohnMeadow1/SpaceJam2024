@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://603k3vy4p3f1"]
 
-[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://Scenes/MainMenu/assets/MinimalUI/MinimalUI.tres" id="1_8vxdm"]
+[ext_resource type="Theme" uid="uid://d1ibbcs5qbibx" path="res://Scenes/MainMenu/assets/MinimalUI/MinimalUI2.tres" id="1_6t163"]
 [ext_resource type="Script" path="res://Scenes/MainMenu/scripts/settings.gd" id="2_7yy6c"]
 [ext_resource type="Script" path="res://Scenes/MainMenu/scripts/video.gd" id="2_u8ap5"]
 [ext_resource type="Script" path="res://Scenes/MainMenu/scripts/audio.gd" id="3_t3cm1"]
@@ -21,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_6t163")
 theme_override_font_sizes/font_size = 16
 current_tab = 0
 script = ExtResource("2_7yy6c")
@@ -31,7 +31,7 @@ layout_mode = 2
 focus_neighbor_left = NodePath("../Controls")
 focus_neighbor_right = NodePath("../Audio")
 focus_neighbor_bottom = NodePath("HBoxContainer/VBoxContainer2/Fullscreen")
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_6t163")
 theme_override_font_sizes/font_size = 20
 script = ExtResource("2_u8ap5")
 
@@ -98,7 +98,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 focus_neighbor_top = NodePath("../Borderless")
 focus_neighbor_bottom = NodePath("../../../Back")
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_6t163")
 theme_override_font_sizes/font_size = 24
 selected = 1
 item_count = 4
@@ -126,7 +126,7 @@ grow_horizontal = 0
 grow_vertical = 0
 focus_neighbor_top = NodePath("../HBoxContainer/VBoxContainer2/Vsync")
 focus_neighbor_bottom = NodePath("../HBoxContainer/VBoxContainer2/Fullscreen")
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_6t163")
 theme_override_font_sizes/font_size = 24
 text = "Back"
 
@@ -136,7 +136,7 @@ layout_mode = 2
 focus_neighbor_left = NodePath("../Video")
 focus_neighbor_right = NodePath("../Controls")
 focus_neighbor_bottom = NodePath("HBoxContainer/VBoxContainer2/Master")
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_6t163")
 theme_override_font_sizes/font_size = 20
 script = ExtResource("3_t3cm1")
 
@@ -233,7 +233,7 @@ grow_horizontal = 0
 grow_vertical = 0
 focus_neighbor_top = NodePath("../HBoxContainer/VBoxContainer2/SoundEffects")
 focus_neighbor_bottom = NodePath("../HBoxContainer/VBoxContainer2/Master")
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_6t163")
 theme_override_font_sizes/font_size = 24
 text = "Back"
 
@@ -243,7 +243,7 @@ layout_mode = 2
 focus_neighbor_left = NodePath("../Audio")
 focus_neighbor_right = NodePath("../Video")
 focus_neighbor_bottom = NodePath("HBoxContainer/VBoxContainer2/Up")
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_6t163")
 theme_override_font_sizes/font_size = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Controls"]
@@ -334,7 +334,7 @@ grow_horizontal = 0
 grow_vertical = 0
 focus_neighbor_top = NodePath("../HBoxContainer/VBoxContainer2/Right")
 focus_neighbor_bottom = NodePath("../HBoxContainer/VBoxContainer2/Up")
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_6t163")
 theme_override_font_sizes/font_size = 24
 text = "Back"
 

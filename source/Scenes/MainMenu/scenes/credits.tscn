@@ -1,0 +1,157 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbygs8k04vetn"]
+
+[ext_resource type="Theme" uid="uid://d1ibbcs5qbibx" path="res://Scenes/MainMenu/assets/MinimalUI/MinimalUI2.tres" id="1_0cetr"]
+[ext_resource type="Script" path="res://Scenes/MainMenu/scripts/credits.gd" id="2_1oq0s"]
+
+[sub_resource type="Animation" id="Animation_t07xb"]
+resource_name = "show_text"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Autor:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 5.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["Gaem made by John Meadow", "Game made by Joahmn Meadow", "Game made by John Meadow"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Autor:visible_characters")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 3.9, 5.1, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 6, 1, 20, 13, 24]
+}
+
+[sub_resource type="Animation" id="Animation_djjye"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Autor:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Game made by John Meadow"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Autor:visible_characters")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [24]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ecjbi"]
+_data = {
+"RESET": SubResource("Animation_djjye"),
+"show_text": SubResource("Animation_t07xb")
+}
+
+[node name="Credits" type="TabContainer"]
+custom_minimum_size = Vector2(512, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -150.0
+offset_right = 320.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_0cetr")
+theme_override_font_sizes/font_size = 16
+current_tab = 0
+script = ExtResource("2_1oq0s")
+
+[node name="Credits" type="TabBar" parent="."]
+layout_mode = 2
+theme = ExtResource("1_0cetr")
+theme_override_font_sizes/font_size = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -105.0
+offset_right = 68.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/HBoxContainer"]
+layout_mode = 2
+
+[node name="Autor" type="Label" parent="Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+focus_mode = 1
+theme_override_font_sizes/font_size = 24
+text = "Game made by John Meadow"
+visible_characters = 24
+
+[node name="Kenney" type="Label" parent="Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "Assets: Scribble Dungeons (1.0)
+Created/distributed by Kenney (www.kenney.nl)"
+
+[node name="BosenCheng" type="Label" parent="Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "Original main menu and theme by:
+BosenCheng (Unchained112)
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Credits/HBoxContainer/VBoxContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_ecjbi")
+}
+
+[node name="Back" type="Button" parent="Credits"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -119.0
+offset_top = -54.0
+offset_right = -19.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_0cetr")
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[connection signal="pressed" from="Credits/Back" to="." method="_on_back_pressed"]

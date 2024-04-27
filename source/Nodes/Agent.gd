@@ -2,7 +2,7 @@ extends Node2D
 class_name Agent
 
 const size := 48
-const ticks_max := [8, 20, 10, 5, 1]
+const ticks_max := [8, 20, 10, 5, 2.5]
 const diretion_change := [0.785398, -0.785398]
 const spawn_points := [Vector2i(1, 1),Vector2i( -1,  -1), Vector2i(1,0),Vector2i(-1,0), Vector2i(0,1), Vector2i(0,-1), Vector2i(-1,1), Vector2i(1,-1)]
 const rect := Rect2i(Vector2i.ZERO, Vector2i.ONE*size-Vector2i.ONE)
@@ -131,7 +131,7 @@ func _physics_process(delta: float) -> void:
 				set_physics_process(false)
 				queue_free()
 			#color = colors[type].lerp(color_old, tick/ticks_max[type])
-			color = Color(0.5,0.5,0.5,1.0).lerp(Color(0.5,0.5,0.5,0.0), tick/ticks_max[type])
+			color = Color(1.0,1.0,1.0,0.0).lerp(Color(1.0,1.0,1.0,1.0), tick/ticks_max[type])
 			sprite_2d.modulate = color
 			#queue_redraw()
 			

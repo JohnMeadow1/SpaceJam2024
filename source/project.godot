@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Space Jam 2024"
+config/name="Life's Entropy - Space Jam 2024"
 run/main_scene="res://Scenes/MainMenu/scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [audio]
 
@@ -31,6 +31,7 @@ window/size/viewport_height=720
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
+mouse_cursor/custom_image="res://Assets/kenney/hand_point_invert.png"
 
 [input]
 
