@@ -1,0 +1,217 @@
+[gd_scene load_steps=10 format=3 uid="uid://dc388hkklqvvc"]
+
+[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://Scenes/MainMenu/assets/MinimalUI/MinimalUI.tres" id="1_0ajpt"]
+[ext_resource type="Script" path="res://Scenes/MainMenu/scripts/main_menu.gd" id="1_tievw"]
+[ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://Scenes/MainMenu/scenes/settings.tscn" id="3_dt7l5"]
+
+[sub_resource type="Animation" id="Animation_uxjl7"]
+resource_name = "idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [-0.261799, 0.261799, -0.261799]
+}
+
+[sub_resource type="Animation" id="Animation_wofbk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nvf1p"]
+_data = {
+"RESET": SubResource("Animation_wofbk"),
+"idle": SubResource("Animation_uxjl7")
+}
+
+[sub_resource type="Animation" id="Animation_roert"]
+resource_name = "raname"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["Temporary titel", "Temporary titel", "Lief Entropy", "Life Entropy"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:visible_characters")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 4, 4.5, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [15, 15, 0, 5, 2, 12]
+}
+
+[sub_resource type="Animation" id="Animation_dv3o5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Temporary titel"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:visible_characters")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sl4pv"]
+_data = {
+"RESET": SubResource("Animation_dv3o5"),
+"raname": SubResource("Animation_roert")
+}
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tievw")
+
+[node name="ColorRect" type="ColorRect" parent="UI/MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="UI/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.5
+offset_top = -276.0
+offset_right = 169.5
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(169, 0)
+size_flags_horizontal = 4
+theme = ExtResource("1_0ajpt")
+theme_override_font_sizes/font_size = 50
+text = "Temporary titel"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters_behavior = 1
+visible_ratio = -0.0666667
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -318.0
+offset_top = -104.0
+offset_right = 318.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="UI/MainMenu/VBoxContainer"]
+custom_minimum_size = Vector2(100, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Option")
+theme = ExtResource("1_0ajpt")
+theme_override_font_sizes/font_size = 24
+text = "Start"
+
+[node name="Option" type="Button" parent="UI/MainMenu/VBoxContainer"]
+custom_minimum_size = Vector2(100, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Start")
+focus_neighbor_bottom = NodePath("../Quit")
+theme = ExtResource("1_0ajpt")
+theme_override_font_sizes/font_size = 24
+text = "Option"
+
+[node name="Quit" type="Button" parent="UI/MainMenu/VBoxContainer"]
+custom_minimum_size = Vector2(100, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Option")
+focus_neighbor_bottom = NodePath("../Start")
+theme = ExtResource("1_0ajpt")
+theme_override_font_sizes/font_size = 24
+text = "Quit
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/MainMenu"]
+libraries = {
+"": SubResource("AnimationLibrary_nvf1p")
+}
+autoplay = "idle"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="UI/MainMenu"]
+libraries = {
+"": SubResource("AnimationLibrary_sl4pv")
+}
+autoplay = "raname"
+
+[node name="Settings" parent="UI" node_paths=PackedStringArray("pre_scene") instance=ExtResource("3_dt7l5")]
+visible = false
+pre_scene = NodePath("../MainMenu")
+
+[connection signal="pressed" from="UI/MainMenu/VBoxContainer/Start" to="UI/MainMenu" method="_on_start_pressed"]
+[connection signal="pressed" from="UI/MainMenu/VBoxContainer/Option" to="UI/MainMenu" method="_on_option_pressed"]
+[connection signal="pressed" from="UI/MainMenu/VBoxContainer/Quit" to="UI/MainMenu" method="_on_quit_pressed"]

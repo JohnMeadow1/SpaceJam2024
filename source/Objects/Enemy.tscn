@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Texture2D" uid="uid://bm6eg8054ygpo" path="res://Sprites/fighter.png" id="1"]
+[ext_resource type="Script" path="res://Objects/Enemy.gd" id="2"]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 18.0
+
+[node name="Enemy" type="Area2D"]
+collision_layer = 2147483680
+script = ExtResource( 2 )
+
+[node name="fighter" type="Sprite2D" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 2, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -20.3293
+offset_top = -35.1786
+offset_right = 19.6707
+offset_bottom = -21.1786
+grow_horizontal = 2
+grow_vertical = 2
+text = "(0,0)"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
